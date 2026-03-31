@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Let's Build Your AI Solution | Neural Nexus</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#002c38",
+            "inverse-surface": "#fcf8f9",
+            "secondary-container": "#6e208c",
+            "tertiary-fixed-dim": "#00e5ee",
+            "tertiary": "#a1faff",
+            "on-primary-container": "#004253",
+            "background": "#0e0e0f",
+            "on-tertiary-fixed": "#004346",
+            "tertiary-fixed": "#00f4fe",
+            "primary-fixed": "#00d2ff",
+            "on-secondary-container": "#f1bfff",
+            "outline": "#767576",
+            "secondary": "#dd8bfb",
+            "inverse-primary": "#00687f",
+            "on-primary": "#004c5e",
+            "surface-container": "#1a191b",
+            "primary-dim": "#00c3ed",
+            "on-secondary": "#4c0068",
+            "on-tertiary": "#006165",
+            "surface-container-highest": "#262627",
+            "on-secondary-fixed": "#580078",
+            "primary": "#72dcff",
+            "on-secondary-fixed-variant": "#792c97",
+            "secondary-dim": "#ce7eec",
+            "surface-container-high": "#201f21",
+            "secondary-fixed-dim": "#ebadff",
+            "primary-container": "#00d2ff",
+            "on-error": "#490006",
+            "secondary-fixed": "#f2c1ff",
+            "on-error-container": "#ffa8a3",
+            "on-surface": "#ffffff",
+            "surface-bright": "#2c2c2d",
+            "error-dim": "#d7383b",
+            "surface": "#0e0e0f",
+            "tertiary-dim": "#00e5ee",
+            "error": "#ff716c",
+            "outline-variant": "#484849",
+            "surface-container-low": "#131314",
+            "on-tertiary-fixed-variant": "#006266",
+            "on-surface-variant": "#adaaab",
+            "primary-fixed-dim": "#00c3ed",
+            "tertiary-container": "#00f4fe",
+            "on-primary-fixed-variant": "#004c5e",
+            "surface-dim": "#0e0e0f",
+            "on-tertiary-container": "#00575b",
+            "on-background": "#ffffff",
+            "surface-tint": "#72dcff",
+            "inverse-on-surface": "#565556",
+            "surface-variant": "#262627",
+            "surface-container-lowest": "#000000",
+            "error-container": "#9f0519"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Manrope"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-card {
+      background: rgba(26, 25, 27, 0.6);
+      backdrop-filter: blur(12px);
+    }
+
+    .neon-glow:focus {
+      box-shadow: 0 0 15px rgba(114, 220, 255, 0.3);
+    }
+
+    .data-line {
+      background: linear-gradient(90deg, transparent, #72dcff, transparent);
+      height: 1px;
+      width: 100%;
+      opacity: 0.1;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+  <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-[#484849]/20 shadow-[0px_20px_40px_rgba(0,195,237,0.08)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+            <div onclick="window.location.href='index.html'" style="cursor:pointer;" class="text-xl font-bold text-[#72dcff] tracking-tight font-headline lowercase">
+                Indrabhan Prajapati
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#home">Home</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#services">Services</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#about">About</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="gallery.html">Projects</a>
+                <a class="font-headline lowercase tracking-tighter text-[#72dcff] border-b-2 border-[#72dcff] pb-1"
+                    href="hire-me.html">Why Hire Me</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#contact">Contact</a>
+                <button onclick="window.location.href='hire-me.html'"
+                    class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-sm font-bold scale-95 active:scale-90 transition-transform">
+                    Hire Me
+                </button>
+            </div>
+            <!-- Mobile Menu Icon (Visual Only) -->
+            <div class="md:hidden">
+                <span class="material-symbols-outlined text-primary">menu</span>
+            </div>
+        </div>
+    </nav>
+  <main class="pt-32 pb-20 px-6 max-w-screen-xl mx-auto relative overflow-hidden">
+    <!-- Background Accents -->
+    <div class="absolute top-0 right-0 -z-10 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-1/4 left-0 -z-10 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <!-- Left Column: Identity & Trust -->
+      <div class="lg:col-span-5 space-y-12">
+        <header class="space-y-4">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary font-label text-[0.6875rem] uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Available for Projects
+          </div>
+          <h1 class="text-5xl md:text-6xl font-headline lowercase tracking-tighter leading-tight">
+            let's build your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">ai
+              solution</span>
+          </h1>
+          <p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-md">
+            Tell me about your project and I'll help you design, build, and deploy it using cutting-edge neural
+            architectures.
+          </p>
+        </header>
+        <div class="space-y-8">
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/20">
+              <span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-lg text-on-surface">real-world deployment</h4>
+              <p class="text-sm text-on-surface-variant">Experienced in production-grade AI systems that handle millions
+                of requests.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/20">
+              <span class="material-symbols-outlined text-primary" data-weight="fill">account_tree</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-lg text-on-surface">scalable llm systems</h4>
+              <p class="text-sm text-on-surface-variant">Built custom RAG pipelines and fine-tuned models for
+                domain-specific automation.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/20">
+              <span class="material-symbols-outlined text-primary" data-weight="fill">monitoring</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-lg text-on-surface">measurable results</h4>
+              <p class="text-sm text-on-surface-variant">Focused on ROI and efficiency metrics, not just vanity
+                technology benchmarks.</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/20 space-y-4">
+          <div class="text-xs font-label uppercase tracking-[0.2em] text-on-surface-variant">Direct Access</div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 text-on-surface group cursor-pointer">
+              <span
+                class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+              <span class="font-body">indrabhan0001@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-3 text-on-surface group cursor-pointer">
+              <span
+                class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">call</span>
+              <span class="font-body">+91 8080463131</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column: Inquiry Form -->
+      <div class="lg:col-span-7">
+        <div
+          class="glass-card rounded-2xl p-8 border border-outline-variant/10 shadow-[0px_20px_40px_rgba(0,195,237,0.05)] relative">
+          <!-- Form Header & Toggle -->
+          <div class="flex justify-between items-center mb-8">
+            <h3 class="font-headline text-xl text-on-surface">Project Inquiry</h3>
+            <div class="flex items-center gap-2 bg-surface-container-highest p-1 rounded-lg">
+              <button
+                class="px-3 py-1 rounded text-[0.6875rem] font-label uppercase tracking-widest bg-surface-bright text-primary shadow-sm">Visual</button>
+              <button
+                class="px-3 py-1 rounded text-[0.6875rem] font-label uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors">Terminal</button>
+            </div>
+          </div>
+          <form id="hireMeForm" class="space-y-6">
+            <input type="hidden" name="access_key" value="{{WEB3FORMS_ACCESS_KEY}}">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Full
+                  Name</label>
+                <input name="name" required
+                  class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body"
+                  placeholder="John Doe" type="text" />
+              </div>
+              <div class="space-y-2">
+                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Email
+                  Address</label>
+                <input name="email" required
+                  class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body"
+                  placeholder="john@company.com" type="email" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label
+                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Company
+                  (Optional)</label>
+                <input name="company"
+                  class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body"
+                  placeholder="Acme Corp" type="text" />
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Project
+                  Type</label>
+                <select name="project_type"
+                  class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface focus:outline-none focus:border-primary neon-glow transition-all font-body appearance-none">
+                  <option>AI Chatbot</option>
+                  <option>Automation System</option>
+                  <option>Data Analytics</option>
+                  <option>Computer Vision</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Project
+                Description</label>
+              <textarea name="message" required
+                class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body resize-none"
+                placeholder="Tell me about the problem you're trying to solve..." rows="4"></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Budget
+                  Range</label>
+                <select name="budget"
+                  class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface focus:outline-none focus:border-primary neon-glow transition-all font-body appearance-none">
+                  <option>₹10k–₹50k</option>
+                  <option>₹50k–₹2L</option>
+                  <option>₹2L+</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Timeline</label>
+                <select name="timeline"
+                  class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface focus:outline-none focus:border-primary neon-glow transition-all font-body appearance-none">
+                  <option>ASAP</option>
+                  <option>1-2 weeks</option>
+                  <option>1+ month</option>
+                </select>
+              </div>
+            </div>
+            <button id="hireSubmitButton"
+              class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-4 rounded-md font-headline text-lg font-bold hover:shadow-[0_0_20px_rgba(114,220,255,0.4)] transition-all duration-300 transform hover:-translate-y-1"
+              type="submit">
+              <span id="hireSubmitButtonText">Start My AI Project</span>
+            </button>
+            <div id="hireFormResult" class="hidden text-center text-sm uppercase tracking-widest font-mono"></div>
+            <!-- Subtle Success State Hint -->
+            <div id="hireFormHint"
+              class="flex items-center justify-center gap-2 py-2 text-primary font-label text-[0.6875rem] uppercase tracking-widest opacity-80">
+              <span class="material-symbols-outlined text-[1rem]">check_circle</span>
+              Response guaranteed within 24 hours
+            </div>
+          </form>
+          <!-- Decorative Data Line -->
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden h-px opacity-30">
+            <div class="data-line animate-pulse"></div>
+          </div>
+        </div>
+        <!-- Floating Success Toast (Visual Reference) -->
+        <div
+          class="mt-8 flex items-center gap-4 bg-surface-container p-4 rounded-xl border border-primary/20 animate-fade-in">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+            <span class="material-symbols-outlined">schedule</span>
+          </div>
+          <div>
+            <p class="font-body text-sm font-medium">System Status: Awaiting Connection</p>
+            <p class="text-xs text-on-surface-variant">Ready to initialize project protocol.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Project Showcase Subtle Grid -->
+  <section class="max-w-screen-xl mx-auto px-6 py-20">
+    <div class="data-line mb-20"></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="group relative aspect-video rounded-xl overflow-hidden border border-outline-variant/10">
+        <img alt="AI Visual" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          data-alt="Digital representation of neural network nodes connecting in a deep blue 3D space with cyan data streams"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvGrmUp_djtemcGO8EL-QeLumfk-hHb_dTXU8wGwtNfdQNz9H-hIHP5-tvc3SkmULAWHZKWEuWKmq0qZUH0NhRZMtFZ8YNaL39ZcsxZaFJ0rK4WGy2lsJG7KWpfaaoXaPmsn_0Lkb0hoiBnUGenVweMMLgQADPT3QI7Y9JrjGdJEWwpLsYqN6ktUPZ7ZO3pa5XFDaFVGs3slrzllHFAbcn0xVT9NH4pBe584Zwp56U7zUczqQ1MZK9BEfAPUYQXl-nhDFp3SYwA4M" />
+        <div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
+          <div>
+            <p class="text-[0.6rem] font-label text-primary uppercase tracking-widest mb-1">Infrastructure</p>
+            <h5 class="font-headline text-lg">Scalable Cloud AI</h5>
+          </div>
+        </div>
+      </div>
+      <div class="group relative aspect-video rounded-xl overflow-hidden border border-outline-variant/10">
+        <img alt="Automation Visual"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          data-alt="Abstract futuristic interface showing robotic arm schematics and algorithmic data flow in soft purple lighting"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH8bPIVjhysGKTxzYxXqzXSS8Hxa_BD9DQY1uMJpJzmboS2xhNyqXFhHJdtSyxVUJrhpHHgRyVjU4UGuPkzZORuOkdsabQ6z5mL9c_j5d_NqIqXVVSZpXSAxmbcbP5kxSEtKTHQ1gG3S0L-erY0YaiGXBD286sNDFmGPwHa4b1Arigu8B8s_A59msR6KzkgPNKXg2-9PDrhcV6upLxniOZQFlG16Pf2sqm6Y_mLZwRsyz8jxMtNWWRRnUNauvQdbDMzcXyQktvg98" />
+        <div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
+          <div>
+            <p class="text-[0.6rem] font-label text-secondary uppercase tracking-widest mb-1">Automation</p>
+            <h5 class="font-headline text-lg">Intelligent Workflows</h5>
+          </div>
+        </div>
+      </div>
+      <div class="group relative aspect-video rounded-xl overflow-hidden border border-outline-variant/10">
+        <img alt="Data Visual"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          data-alt="Close up of a glowing circuit board with flowing light paths and high-tech digital components in neon cyan"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKbglZF8NKVRHpni9PvMoWApnpiVpXMgn1vQr6235f1oVt620gjfx7LlezMcM8Njxml7vySf0njPmSYzcScU4ocXHNILtZPNiLt0JQ4LmP4YlkfeHQAhxc1t_OuQXyTPlCanebnlb0ZJQ_WhnPxkSGYycYukD8PjUy1MRTNXq993-o2I4MGaDinEFteIcFdJk3M_NlGKvN9S7XbvksGIvXaYGOHe_2Un2YAkBYSuCDWye0zih_rDizEaiCcGeMxf_HDAVNiKiq7rw" />
+        <div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
+          <div>
+            <p class="text-[0.6rem] font-label text-tertiary uppercase tracking-widest mb-1">Intelligence</p>
+            <h5 class="font-headline text-lg">Predictive Analytics</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="w-full py-12 px-8 border-t border-white/5 bg-zinc-950">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
+      <div class="font-headline text-lg text-zinc-200 lowercase">neural nexus</div>
+      <div class="flex gap-8">
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Privacy Policy</a>
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Terms of Service</a>
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Documentation</a>
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Github</a>
+      </div>
+      <p class="font-body text-sm text-zinc-500">© 2024 Neural Nexus AI. Engineered for Excellence.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hireMeForm')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const button = document.getElementById('hireSubmitButton');
+        const buttonText = document.getElementById('hireSubmitButtonText');
+        const result = document.getElementById('hireFormResult');
+        const hint = document.getElementById('hireFormHint');
+        const formData = new FormData(form);
+
+        if (!formData.get('access_key') || formData.get('access_key') === '{{WEB3FORMS_ACCESS_KEY}}' || formData.get('access_key') === '') {
+            result.classList.remove('hidden', 'text-primary');
+            result.classList.add('block', 'text-red-500');
+            result.innerText = 'Error: Web3Forms access key is missing!';
+            hint.classList.add('hidden');
+            return;
+        }
+
+        button.disabled = true;
+        buttonText.innerText = 'Sending Request...';
+        result.classList.add('hidden');
+        hint.classList.add('hidden');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                result.classList.remove('hidden', 'text-red-500');
+                result.classList.add('block', 'text-primary');
+                result.innerText = 'Request Sent Successfully! I will reach out shortly.';
+                form.reset();
+            } else {
+                result.classList.remove('hidden', 'text-primary');
+                result.classList.add('block', 'text-red-500');
+                result.innerText = `Error: ${data.message}`;
+            }
+        } catch (error) {
+            result.classList.remove('hidden', 'text-primary');
+            result.classList.add('block', 'text-red-500');
+            result.innerText = 'Network Error. Could not connect.';
+        } finally {
+            button.disabled = false;
+            buttonText.innerText = 'Start My AI Project';
+            setTimeout(() => {
+                hint.classList.remove('hidden');
+                result.classList.add('hidden');
+            }, 6000);
+        }
+    });
+  </script>
+</body>
+</html>

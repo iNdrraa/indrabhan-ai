@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#72dcff",
+            "secondary-dim": "#ce7eec",
+            "on-secondary": "#4c0068",
+            "surface-container": "#1a191b",
+            "outline-variant": "#484849",
+            "error-container": "#9f0519",
+            "surface-container-high": "#201f21",
+            "on-tertiary-container": "#00575b",
+            "tertiary-dim": "#00e5ee",
+            "on-tertiary": "#006165",
+            "error": "#ff716c",
+            "on-tertiary-fixed": "#004346",
+            "surface": "#0e0e0f",
+            "primary": "#72dcff",
+            "secondary-fixed-dim": "#ebadff",
+            "tertiary-fixed-dim": "#00e5ee",
+            "on-primary": "#004c5e",
+            "inverse-primary": "#00687f",
+            "tertiary-container": "#00f4fe",
+            "on-secondary-container": "#f1bfff",
+            "inverse-surface": "#fcf8f9",
+            "surface-container-highest": "#262627",
+            "secondary-fixed": "#f2c1ff",
+            "secondary": "#dd8bfb",
+            "surface-bright": "#2c2c2d",
+            "on-error-container": "#ffa8a3",
+            "tertiary-fixed": "#00f4fe",
+            "tertiary": "#a1faff",
+            "secondary-container": "#6e208c",
+            "on-tertiary-fixed-variant": "#006266",
+            "on-secondary-fixed-variant": "#792c97",
+            "on-surface-variant": "#adaaab",
+            "on-primary-container": "#004253",
+            "primary-dim": "#00c3ed",
+            "primary-fixed": "#00d2ff",
+            "surface-container-lowest": "#000000",
+            "surface-container-low": "#131314",
+            "on-primary-fixed-variant": "#004c5e",
+            "surface-variant": "#262627",
+            "surface-dim": "#0e0e0f",
+            "outline": "#767576",
+            "on-primary-fixed": "#002c38",
+            "on-error": "#490006",
+            "primary-fixed-dim": "#00c3ed",
+            "primary-container": "#00d2ff",
+            "on-secondary-fixed": "#580078",
+            "on-background": "#ffffff",
+            "inverse-on-surface": "#565556",
+            "on-surface": "#ffffff",
+            "error-dim": "#d7383b",
+            "background": "#0e0e0f"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Manrope"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(26, 25, 27, 0.6);
+      backdrop-filter: blur(12px);
+    }
+
+    .neon-glow {
+      box-shadow: 0 20px 40px rgba(0, 195, 237, 0.08);
+    }
+
+    .data-line {
+      background: linear-gradient(90deg, transparent, #72dcff, transparent);
+      height: 1px;
+      width: 100%;
+      opacity: 0.1;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+  <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-[#484849]/20 shadow-[0px_20px_40px_rgba(0,195,237,0.08)]">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+            <div onclick="window.location.href='index.html'" style="cursor:pointer;" class="text-xl font-bold text-[#72dcff] tracking-tight font-headline lowercase">
+                Indrabhan Prajapati
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#home">Home</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#services">Services</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#about">About</a>
+                <a class="font-headline lowercase tracking-tighter text-[#72dcff] border-b-2 border-[#72dcff] pb-1"
+                    href="gallery.html">Projects</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#why-hire">Why Hire Me</a>
+                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                    href="index.html#contact">Contact</a>
+                <button onclick="window.location.href='hire-me.html'"
+                    class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-sm font-bold scale-95 active:scale-90 transition-transform">
+                    Hire Me
+                </button>
+            </div>
+            <!-- Mobile Menu Icon (Visual Only) -->
+            <div class="md:hidden">
+                <span class="material-symbols-outlined text-primary">menu</span>
+            </div>
+        </div>
+    </nav>
+  <main class="pt-32 pb-20 px-8 max-w-7xl mx-auto">
+    <!-- Hero Section -->
+    <header class="mb-20 relative">
+      <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/10 blur-[120px] rounded-full"></div>
+      <div class="relative z-10">
+        <h1
+          class="font-headline text-display-lg text-6xl md:text-7xl font-bold tracking-tighter lowercase mb-4 leading-none">
+          Selected <span class="text-primary italic">AI</span> Projects
+        </h1>
+        <p class="text-on-surface-variant max-w-2xl text-lg md:text-xl font-light">
+          Explore the neural nexus of automated solutions, from RAG pipelines to real-time computer vision. Engineered
+          for the infinite.
+        </p>
+        <div class="mt-8 data-line"></div>
+      </div>
+    </header>
+    <!-- Projects Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project Card 1 -->
+      <div
+        class="glass-card group relative p-6 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+        <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container-lowest">
+          <img alt="Merchant Analytics Chatbot"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+            data-alt="Futuristic data visualization dashboard with glowing blue nodes and connected neural pathways on a dark background"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIlDNGqfed15QD12UyMqPn-EOfuTIdUK-BlqaXJh44lO4GnFa3ICycSOWI0kb9FHyodP2vaM54EqdAHFPEEh34ttHXvQKNepiTeEhi1lR192cUPT-MB4If7BLWoBGuj8lAcVazRJWWW-pEgreNijrm2fG7no2oW-5jIT3aW9wuYSTzCkx2clyeyRS_okl3AGYks7Imscaf5beaLO50KkLezo6ZjxPTFCJfqkMTCNUiazO272k9uv_5Y5oixUJECGfLDX4GlsLff-c" />
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-primary border border-primary/20 rounded-full">LangChain</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-primary border border-primary/20 rounded-full">PostgreSQL</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-primary border border-primary/20 rounded-full">OpenAI</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold mb-3 lowercase tracking-tight">Merchant Analytics Chatbot</h3>
+        <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+          Converted complex SQL queries into natural language dialogues using autonomous agents for real-time merchant
+          insights.
+        </p>
+        <div class="flex justify-between items-center pt-4 border-t border-white/5">
+          <span class="text-xs font-label text-zinc-500 uppercase tracking-widest">Text-to-SQL + Agents</span>
+          <button class="text-primary hover:text-primary-container transition-colors">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Project Card 2 -->
+      <div
+        class="glass-card group relative p-6 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all duration-500 hover:-translate-y-2">
+        <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container-lowest">
+          <img alt="Customer Insight Chatbot"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+            data-alt="Abstract representation of high-tech communication with glowing purple wave patterns and digital particles"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6B0lU5HrLmvPC1I-vcWpFNBVNfklFYt9k9z3QOHEhokWLIw77eZQX76WIQfMQoeLAG1SHm4-WcGY0ClUGKJPRZ2B9AnSw28Bi5zje2KaRcHmr_aCo_JMnXPBhhmBMW_jsvT2RzAvP83fIF2d-6foG3CKLneJojlqz3a1Pl_i_4mmVOebAxfg3zpH7m0H3s0BUuawtRDvlGpEqVRk5nadlp6jDVFK8tkVm7X52DrcrcGjlVuxi-BJaenluiY13pp073xlrI7KOjrc" />
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-secondary-container/20 text-secondary border border-secondary/20 rounded-full">Pinecone</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-secondary-container/20 text-secondary border border-secondary/20 rounded-full">RAG</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-secondary-container/20 text-secondary border border-secondary/20 rounded-full">FastAPI</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold mb-3 lowercase tracking-tight">Customer Insight System</h3>
+        <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+          A sophisticated RAG pipeline achieving 96% customer satisfaction by providing precise, context-aware support
+          documentation.
+        </p>
+        <div class="flex justify-between items-center pt-4 border-t border-white/5">
+          <span class="text-xs font-label text-secondary uppercase tracking-widest">96% Satisfaction</span>
+          <button class="text-secondary hover:text-secondary-dim transition-colors">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Project Card 3 -->
+      <div
+        class="glass-card group relative p-6 rounded-xl border border-outline-variant/10 hover:border-tertiary/30 transition-all duration-500 hover:-translate-y-2 lg:col-span-1">
+        <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container-lowest">
+          <img alt="License Plate Detection"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+            data-alt="Modern dark city street at night with streaks of light from moving vehicles and high-tech surveillance overlays"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuByIU-82kL9SvgshcNeRlqRgCmXg2GI7_SxGWBPy17bQoYC5XRK4WDyhFXiyfbjTGriXzyPwgnro7ff8UJaH6u2me8sjWTqj_-dzysAYEb_djt1mVZLU9TYt-6qnyE10TbAZGdXkGbuOa0zHux3z6LEW9mIEd8w5HVZey1LzLR_-WYLyljGDFUYTaEOUCc7kcHPoEOqHp2AVKOm4GnqS73tOzRsWyrYdiTEo51SkicRIJT3FmXgopNlvYXxn8fdLMdtWkcjynjI6A8" />
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-tertiary-container/10 text-tertiary border border-tertiary/20 rounded-full">YOLOv8</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-tertiary-container/10 text-tertiary border border-tertiary/20 rounded-full">OpenCV</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-tertiary-container/10 text-tertiary border border-tertiary/20 rounded-full">AWS</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold mb-3 lowercase tracking-tight">Real-time ALPR System</h3>
+        <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+          High-speed license plate recognition system deployed on edge devices for secure facility management and
+          automated logging.
+        </p>
+        <div class="flex justify-between items-center pt-4 border-t border-white/5">
+          <span class="text-xs font-label text-tertiary uppercase tracking-widest">Computer Vision</span>
+          <button class="text-tertiary hover:text-tertiary-dim transition-colors">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Project Card 4 (Large Bento) -->
+      <div
+        class="glass-card group relative p-6 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 md:col-span-2">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="aspect-square md:aspect-video overflow-hidden rounded-lg bg-surface-container-lowest">
+            <img alt="Inventory Automation"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+              data-alt="Futuristic automated warehouse with glowing orange and blue robotic arms moving through vertical storage arrays"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi7DJyeeKiM28P5CJ2cc8ID6u4LjBRjMY20J1Fb4A8_8TZsRnQYrs-017mpCNpg8cqF91b3-ZnSZ99ivhuzn6uXGKJO23e_JjWGLHVbnzzrxadt7lwLcstRACyyk4HPH5kKvB7tZVaA0RJC6KLa6egVMhpa2ehSkR6ogcXZpSVC6c32Mbtx8gsr_o7_sPM-RaqCcderYHHhj6OBQ6DsqTVULFXUi_hkOLctWlrXL7oj6ybpeV05gyqMXpeOM9BTXx-gbtnkN17BxA" />
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-primary border border-primary/20 rounded-full">Python</span>
+              <span
+                class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-primary border border-primary/20 rounded-full">OCR</span>
+              <span
+                class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-primary border border-primary/20 rounded-full">Pandas</span>
+            </div>
+            <h3 class="font-headline text-2xl font-bold mb-4 lowercase tracking-tight">Inventory Automation Hub</h3>
+            <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+              Architected a full-scale inventory management system that reduced manual data entry efforts by 98% through
+              advanced OCR and intelligent reconciliation.
+            </p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center gap-2 text-xs font-label text-on-surface/80">
+                <span class="material-symbols-outlined text-primary text-sm">check_circle</span> 98% Effort Reduction
+              </li>
+              <li class="flex items-center gap-2 text-xs font-label text-on-surface/80">
+                <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Real-time Stock Sync
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 bg-white/5 border border-white/10 rounded hover:bg-white/10 transition-colors font-label text-xs uppercase tracking-widest">View
+              Full Case Study</button>
+          </div>
+        </div>
+      </div>
+      <!-- Project Card 5 -->
+      <div
+        class="glass-card group relative p-6 rounded-xl border border-outline-variant/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2">
+        <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container-lowest">
+          <img alt="Autonomous Web Researcher"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+            data-alt="Stylized digital globe with glowing fiber optic connections and data streams against deep black space"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkOhDD5XifzyBfFH2ZRUWbIcNG2WjSYrZBZxkp0ybq34pW5VV-9uPtDFFNDZ7rZzsARQGgGiX1DAncGLnpDI7ql1gKz6fU3V83zEHs3RID8RUYUrWovvhbb1bgdCRBCWe0lbUnMZokTeGG-wpBgzqMGbc2CBe1G6bjW9dI2eEtqV7Jr9Vg_pxnFOcW1SU_5bLA6DkCBiKR8a2SyNau9--BG85QgwnVvWxfjGscsrC42kkwtv_fg6pvZVECxu2hUTefToCsBqEVuIE" />
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-on-surface-variant border border-outline-variant/30 rounded-full">GPT-4o</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-surface-container-highest text-on-surface-variant border border-outline-variant/30 rounded-full">Multi-Agent</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold mb-3 lowercase tracking-tight">Autonomous Researcher</h3>
+        <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+          A multi-agent swarm capable of deep-web research, synthesizing complex datasets into structured technical
+          reports.
+        </p>
+        <div class="flex justify-between items-center pt-4 border-t border-white/5">
+          <span class="text-xs font-label text-zinc-500 uppercase tracking-widest">LLM + Multi-agent</span>
+          <button class="text-white hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Project Card 6 -->
+      <div
+        class="glass-card group relative p-6 rounded-xl border border-outline-variant/10 hover:border-error/30 transition-all duration-500 hover:-translate-y-2">
+        <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container-lowest">
+          <img alt="Predictive Maintenance"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+            data-alt="Microchip circuitry glowing with red and orange heat-map signals indicating sensor diagnostics and machine learning patterns"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYbuGnGqOwb-_bmRxA08DnrIjdqwUAxVsXd0kleUdF2MGjUf4osVHTx4fpf3aqKr6u-RjykzAf35X8aBx2tXtcDsQ_zT7f8tcfRHlZrCLi-xa0I1Y5UCEOGh-2FR0ZeQ-am74zDo8gpiqZvcjcb5J70eZEDcGU36oNBwoDOmMzA9mRdCc52E0Zglbae1i1y46dUhr2tizKWFSSbqrM6HDybU6WLDccMwfg-MXpNiYE5SXDPPDJW4oY4HTArwicR_U54dp8icZldPI" />
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-error-container/20 text-error border border-error/20 rounded-full">PyTorch</span>
+          <span
+            class="px-2 py-1 text-[10px] font-label uppercase tracking-wider bg-error-container/20 text-error border border-error/20 rounded-full">IoT</span>
+        </div>
+        <h3 class="font-headline text-xl font-bold mb-3 lowercase tracking-tight">Predictive Maintenance</h3>
+        <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">
+          ML-driven dashboard monitoring industrial equipment to predict failures before they happen, optimizing
+          lifecycle management.
+        </p>
+        <div class="flex justify-between items-center pt-4 border-t border-white/5">
+          <span class="text-xs font-label text-error uppercase tracking-widest">ML + IoT Analytics</span>
+          <button class="text-error hover:text-error-dim transition-colors">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative Intersection Line -->
+    <div class="my-32 flex justify-center items-center gap-4 opacity-30">
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+      <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <!-- CTA Section -->
+    <section class="glass-card rounded-2xl p-12 text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-primary/5 -z-10"></div>
+      <h2 class="font-headline text-4xl font-bold lowercase mb-6">Ready to build the future?</h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto mb-10">
+        I am currently open to new collaborations in the AI and Machine Learning space. Let's discuss your next
+        breakthrough project.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="window.location.href='hire-me.html'"
+          class="px-10 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-label font-bold uppercase tracking-widest text-xs rounded-md shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+          Start a Conversation
+        </button>
+        <button
+          class="px-10 py-4 bg-transparent border border-outline-variant text-on-surface font-label font-bold uppercase tracking-widest text-xs rounded-md hover:bg-surface-bright transition-colors">
+          Download CV
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full border-t border-white/5 bg-zinc-950">
+    <div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-7xl mx-auto gap-6">
+      <div class="text-lg font-bold text-cyan-400 lowercase font-headline">
+        neural nexus
+      </div>
+      <div class="text-center md:text-left">
+        <p class="text-[0.6875rem] font-label text-zinc-500 uppercase tracking-[0.2em]">
+          © 2024 NEURAL NEXUS. ENGINEERED FOR THE INFINITE.
+        </p>
+      </div>
+      <div class="flex gap-6">
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-label text-[0.6875rem] uppercase tracking-widest"
+          href="#">Documentation</a>
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-label text-[0.6875rem] uppercase tracking-widest"
+          href="#">GitHub</a>
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-label text-[0.6875rem] uppercase tracking-widest"
+          href="#">LinkedIn</a>
+        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-label text-[0.6875rem] uppercase tracking-widest"
+          href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
