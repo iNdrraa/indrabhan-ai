@@ -1,0 +1,148 @@
+[
+  {
+    "id": "merchant-analytics",
+    "title": "Merchant Analytics Chatbot",
+    "description": "Converted complex SQL queries into natural language dialogues using autonomous agents for real-time merchant insights.",
+    "featuredDescription": "Empowered merchants to query multi-million row databases using natural language, reducing data analysis time by 90%.",
+    "featured": true,
+    "images": {
+      "featured": "https://lh3.googleusercontent.com/aida-public/AB6AXuAH82fDbxwbMXkMJbjVAtFfkHByGRtOJGCdSAykp2SjqNAzruHWQ3khaivZLghT66wedgtLfVTIBO5s5F4jmgRsGhEd6-d9CajBOi8y9WiZMIEWn2fjL7WI1UISKW42hQ_IT_ipqM3U2rKrrh2UeiiMw9Ob7apwDGAUzRRG_sMKFKTW8fAg1Eg0SR0u0Qo-POniVipssBeKrP90PAxKpP7If4NUNRpOTcgOEAgEdDKyaiPbHB-3myCMa2GeXchfQD7S7fVug4XJMtA",
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuDIlDNGqfed15QD12UyMqPn-EOfuTIdUK-BlqaXJh44lO4GnFa3ICycSOWI0kb9FHyodP2vaM54EqdAHFPEEh34ttHXvQKNepiTeEhi1lR192cUPT-MB4If7BLWoBGuj8lAcVazRJWWW-pEgreNijrm2fG7no2oW-5jIT3aW9wuYSTzCkx2clyeyRS_okl3AGYks7Imscaf5beaLO50KkLezo6ZjxPTFCJfqkMTCNUiazO272k9uv_5Y5oixUJECGfLDX4GlsLff-c"
+    },
+    "imageAlt": {
+      "featured": "Futuristic data dashboard showing complex neural networks and financial charts with blue glowing accents in a dark room environment",
+      "gallery": "Futuristic data visualization dashboard with glowing blue nodes and connected neural pathways on a dark background"
+    },
+    "tags": {
+      "gallery": ["LangChain", "PostgreSQL", "OpenAI"],
+      "featured": ["Text-to-SQL", "LLM Agent"]
+    },
+    "category": {
+      "gallery": "Text-to-SQL + Agents",
+      "featured": "Enterprise"
+    },
+    "metrics": {
+      "text": "120k queries handled monthly",
+      "icon": "trending_up"
+    }
+  },
+  {
+    "id": "license-plate-detection",
+    "title": "License Plate Detection",
+    "galleryTitle": "Real-time ALPR System",
+    "description": "Custom YOLOv8 model for high-speed motorway monitoring with 99.4% accuracy.",
+    "galleryDescription": "High-speed license plate recognition system deployed on edge devices for secure facility management and automated logging.",
+    "featured": true,
+    "images": {
+      "featured": "https://lh3.googleusercontent.com/aida-public/AB6AXuBIA3jUZUoTVx7TVxIz74V_Oxnjffgv79BmSRVv2k97SFnX6n0Z2OQxco5KZ0uh80yODju1q6YrmCVyFwJz_PZAiMpNMrn0mRse2Pd9p5ekqdGe1aCdAi18WlSp2HzGLjEatu1ORdW7zDx23l4T6JqfrJwVeYmz-mCihUBjAqzes1wHLky0HWag1zigqgb7iZoz3NUFDBcEGcbSO_kmuQwypgDm1NsDdmyfxvvd9qQlsW6AYUrNTE66p0w9rjYLWcKv4P38Hxg7Lzw",
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuByIU-82kL9SvgshcNeRlqRgCmXg2GI7_SxGWBPy17bQoYC5XRK4WDyhFXiyfbjTGriXzyPwgnro7ff8UJaH6u2me8sjWTqj_-dzysAYEb_djt1mVZLU9TYt-6qnyE10TbAZGdXkGbuOa0zHux3z6LEW9mIEd8w5HVZey1LzLR_-WYLyljGDFUYTaEOUCc7kcHPoEOqHp2AVKOm4GnqS73tOzRsWyrYdiTEo51SkicRIJT3FmXgopNlvYXxn8fdLMdtWkcjynjI6A8"
+    },
+    "imageAlt": {
+      "featured": "Night-time long exposure of cars on a highway with digital recognition bounding boxes and neon tracking overlays",
+      "gallery": "Modern dark city street at night with streaks of light from moving vehicles and high-tech surveillance overlays"
+    },
+    "tags": {
+      "gallery": ["YOLOv8", "OpenCV", "AWS"],
+      "featured": []
+    },
+    "category": {
+      "gallery": "Computer Vision",
+      "featured": "Real-time Recognition"
+    }
+  },
+  {
+    "id": "customer-insight-system",
+    "title": "Customer Insight Chatbot",
+    "galleryTitle": "Customer Insight System",
+    "description": "Built using LangChain & Pinecone, achieving a record-breaking 96% user satisfaction rating.",
+    "galleryDescription": "A sophisticated RAG pipeline achieving 96% customer satisfaction by providing precise, context-aware support documentation.",
+    "featured": true,
+    "images": {
+      "featured": "",
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuD6B0lU5HrLmvPC1I-vcWpFNBVNfklFYt9k9z3QOHEhokWLIw77eZQX76WIQfMQoeLAG1SHm4-WcGY0ClUGKJPRZ2B9AnSw28Bi5zje2KaRcHmr_aCo_JMnXPBhhmBMW_jsvT2RzAvP83fIF2d-6foG3CKLneJojlqz3a1Pl_i_4mmVOebAxfg3zpH7m0H3s0BUuawtRDvlGpEqVRk5nadlp6jDVFK8tkVm7X52DrcrcGjlVuxi-BJaenluiY13pp073xlrI7KOjrc"
+    },
+    "imageAlt": {
+      "featured": "",
+      "gallery": "Abstract representation of high-tech communication with glowing purple wave patterns and digital particles"
+    },
+    "tags": {
+      "gallery": ["Pinecone", "RAG", "FastAPI"],
+      "featured": []
+    },
+    "category": {
+      "gallery": "96% Satisfaction",
+      "featured": "Customer Support"
+    },
+    "metrics": {
+      "stars": 4.5
+    }
+  },
+  {
+    "id": "inventory-automation-hub",
+    "title": "Inventory Automation",
+    "galleryTitle": "Inventory Automation Hub",
+    "description": "Autonomous pipeline connecting ERP data with AI prediction models to automate re-stocking workflows.",
+    "galleryDescription": "Architected a full-scale inventory management system that reduced manual data entry efforts by 98% through advanced OCR and intelligent reconciliation.",
+    "featured": true,
+    "images": {
+      "featured": "https://lh3.googleusercontent.com/aida-public/AB6AXuDIVmrbg0ggPAIx_l5wZUsOPq3ZoZe8P4c8-AWWB8ZPAnLApZzuxjjJ_w1M1KH5vdObq6rsA2m2P6_ICKL8qB0ffR2tL6-PoWx7sCIn6YSaK4Swut2q99KrAAxO6IEMQe3qLEC7MOFT7rPRd0uI0iGtVkd94fVPPeoSt_8-gzKkAGCwRthqA6FY1eMHwO4SqxApukDASgTwfM4d3VR-POyGhFarKFtFzzFqbLIB9Fbb9gYionf2p5S33rOaSAYvgt0yxjdKxe2B0Hg",
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuDi7DJyeeKiM28P5CJ2cc8ID6u4LjBRjMY20J1Fb4A8_8TZsRnQYrs-017mpCNpg8cqF91b3-ZnSZ99ivhuzn6uXGKJO23e_JjWGLHVbnzzrxadt7lwLcstRACyyk4HPH5kKvB7tZVaA0RJC6KLa6egVMhpa2ehSkR6ogcXZpSVC6c32Mbtx8gsr_o7_sPM-RaqCcderYHHhj6OBQ6DsqTVULFXUi_hkOLctWlrXL7oj6ybpeV05gyqMXpeOM9BTXx-gbtnkN17BxA"
+    },
+    "imageAlt": {
+      "featured": "Modern high-tech warehouse with glowing scanning lines and floating digital holographic labels on packages",
+      "gallery": "Futuristic automated warehouse with glowing orange and blue robotic arms moving through vertical storage arrays"
+    },
+    "tags": {
+      "gallery": ["Python", "OCR", "Pandas"],
+      "featured": []
+    },
+    "galleryLayout": "large",
+    "metricsList": [
+      "98% Effort Reduction",
+      "Real-time Stock Sync"
+    ],
+    "metrics": {
+      "icon": "inventory_2",
+      "percentage": "98%",
+      "percentageText": "Less Effort"
+    }
+  },
+  {
+    "id": "autonomous-researcher",
+    "title": "Autonomous Researcher",
+    "description": "A multi-agent swarm capable of deep-web research, synthesizing complex datasets into structured technical reports.",
+    "featured": false,
+    "images": {
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuAkOhDD5XifzyBfFH2ZRUWbIcNG2WjSYrZBZxkp0ybq34pW5VV-9uPtDFFNDZ7rZzsARQGgGiX1DAncGLnpDI7ql1gKz6fU3V83zEHs3RID8RUYUrWovvhbb1bgdCRBCWe0lbUnMZokTeGG-wpBgzqMGbc2CBe1G6bjW9dI2eEtqV7Jr9Vg_pxnFOcW1SU_5bLA6DkCBiKR8a2SyNau9--BG85QgwnVvWxfjGscsrC42kkwtv_fg6pvZVECxu2hUTefToCsBqEVuIE"
+    },
+    "imageAlt": {
+      "gallery": "Stylized digital globe with glowing fiber optic connections and data streams against deep black space"
+    },
+    "tags": {
+      "gallery": ["GPT-4o", "Multi-Agent"]
+    },
+    "category": {
+      "gallery": "LLM + Multi-agent"
+    }
+  },
+  {
+    "id": "predictive-maintenance",
+    "title": "Predictive Maintenance",
+    "description": "ML-driven dashboard monitoring industrial equipment to predict failures before they happen, optimizing lifecycle management.",
+    "featured": false,
+    "galleryHoverBorder": "hover:border-error/30",
+    "tagsColor": "error",
+    "images": {
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuDYbuGnGqOwb-_bmRxA08DnrIjdqwUAxVsXd0kleUdF2MGjUf4osVHTx4fpf3aqKr6u-RjykzAf35X8aBx2tXtcDsQ_zT7f8tcfRHlZrCLi-xa0I1Y5UCEOGh-2FR0ZeQ-am74zDo8gpiqZvcjcb5J70eZEDcGU36oNBwoDOmMzA9mRdCc52E0Zglbae1i1y46dUhr2tizKWFSSbqrM6HDybU6WLDccMwfg-MXpNiYE5SXDPPDJW4oY4HTArwicR_U54dp8icZldPI"
+    },
+    "imageAlt": {
+      "gallery": "Microchip circuitry glowing with red and orange heat-map signals indicating sensor diagnostics and machine learning patterns"
+    },
+    "tags": {
+      "gallery": ["PyTorch", "IoT"]
+    },
+    "category": {
+      "gallery": "ML + IoT Analytics"
+    }
+  }
+]
