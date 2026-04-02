@@ -32,8 +32,9 @@ jobs:
         env:
           WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
         run: |
-          sed -i "s/{{WEB3FORMS_ACCESS_KEY}}/${WEB3FORMS_ACCESS_KEY}/g" index.html
-          sed -i "s/{{WEB3FORMS_ACCESS_KEY}}/${WEB3FORMS_ACCESS_KEY}/g" hire-me.html
+          ESCAPED_KEY=$(printf '%s\n' "$WEB3FORMS_ACCESS_KEY" | sed 's/[&/\]/\\&/g')
+          sed -i "s/{{WEB3FORMS_ACCESS_KEY}}/${ESCAPED_KEY}/g" index.html
+          sed -i "s/{{WEB3FORMS_ACCESS_KEY}}/${ESCAPED_KEY}/g" hire-me.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
