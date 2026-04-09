@@ -20,6 +20,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,8 +31,6 @@ jobs:
 
       - name: Inject Web3Forms Access Key
         if: env.WEB3FORMS_ACCESS_KEY != ''
-        env:
-          WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
         run: |
           ESCAPED_KEY=$(printf '%s\n' "$WEB3FORMS_ACCESS_KEY" | sed 's/[&/\]/\\&/g')
           sed -i "s/{{WEB3FORMS_ACCESS_KEY}}/${ESCAPED_KEY}/g" index.html
