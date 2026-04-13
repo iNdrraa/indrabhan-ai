@@ -227,7 +227,6 @@
             </div>
           </div>
           <form id="hireMeForm" class="space-y-6">
-            <input type="hidden" name="access_key" value="{{WEB3FORMS_ACCESS_KEY}}">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Full
@@ -383,60 +382,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('hireMeForm')?.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const button = document.getElementById('hireSubmitButton');
-        const buttonText = document.getElementById('hireSubmitButtonText');
-        const result = document.getElementById('hireFormResult');
-        const hint = document.getElementById('hireFormHint');
-        const formData = new FormData(form);
-
-        if (!formData.get('access_key') || formData.get('access_key') === '{{WEB3FORMS_ACCESS_KEY}}' || formData.get('access_key') === '') {
-            result.classList.remove('hidden', 'text-primary');
-            result.classList.add('block', 'text-red-500');
-            result.innerText = 'Error: Web3Forms access key is missing!';
-            hint.classList.add('hidden');
-            return;
-        }
-
-        button.disabled = true;
-        buttonText.innerText = 'Sending Request...';
-        result.classList.add('hidden');
-        hint.classList.add('hidden');
-
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                result.classList.remove('hidden', 'text-red-500');
-                result.classList.add('block', 'text-primary');
-                result.innerText = 'Request Sent Successfully! I will reach out shortly.';
-                form.reset();
-            } else {
-                result.classList.remove('hidden', 'text-primary');
-                result.classList.add('block', 'text-red-500');
-                result.innerText = `Error: ${data.message}`;
-            }
-        } catch (error) {
-            result.classList.remove('hidden', 'text-primary');
-            result.classList.add('block', 'text-red-500');
-            result.innerText = 'Network Error. Could not connect.';
-        } finally {
-            button.disabled = false;
-            buttonText.innerText = 'Start My AI Project';
-            setTimeout(() => {
-                hint.classList.remove('hidden');
-                result.classList.add('hidden');
-            }, 6000);
-        }
-    });
-  </script>
+  <script defer src="js/contact-forms.js"></script>
 </body>
 </html>
