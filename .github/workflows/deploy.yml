@@ -1,4 +1,5 @@
-name: Deploy static content to Pages
+# Sole Pages deploy workflow — injects FORMSPREE_ENDPOINT into js/contact-forms.js before upload.
+name: Deploy Pages (Formspree)
 
 on:
   push:
