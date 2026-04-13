@@ -53,7 +53,7 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
   }
 
   button.disabled = true;
-  buttonText.innerText = 'Deploying...';
+  buttonText.innerText = 'Sending…';
   result.classList.add('hidden');
 
   try {
@@ -61,7 +61,7 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
     if (outcome.ok) {
       result.classList.remove('hidden', 'text-error');
       result.classList.add('text-primary');
-      result.innerText = '> Deployment successful. Connection established.';
+      result.innerText = '> Message sent. I will get back to you soon.';
       form.reset();
     } else {
       result.classList.remove('hidden', 'text-primary');
@@ -71,10 +71,10 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
   } catch (_) {
     result.classList.remove('hidden', 'text-primary');
     result.classList.add('text-error');
-    result.innerText = '> System failure while connecting.';
+    result.innerText = '> Could not send. Check your connection and try again.';
   } finally {
     button.disabled = false;
-    buttonText.innerText = 'Execute Deployment';
+    buttonText.innerText = 'Send message';
   }
 });
 
@@ -96,7 +96,7 @@ document.getElementById('hireMeForm')?.addEventListener('submit', async function
   }
 
   button.disabled = true;
-  buttonText.innerText = 'Sending Request...';
+  buttonText.innerText = 'Sending…';
   result.classList.add('hidden');
   hint.classList.add('hidden');
 
@@ -105,7 +105,7 @@ document.getElementById('hireMeForm')?.addEventListener('submit', async function
     if (outcome.ok) {
       result.classList.remove('hidden', 'text-red-500');
       result.classList.add('block', 'text-primary');
-      result.innerText = 'Request Sent Successfully! I will reach out shortly.';
+      result.innerText = 'Request sent successfully. I will reach out shortly.';
       form.reset();
     } else {
       result.classList.remove('hidden', 'text-primary');
@@ -115,10 +115,10 @@ document.getElementById('hireMeForm')?.addEventListener('submit', async function
   } catch (_) {
     result.classList.remove('hidden', 'text-primary');
     result.classList.add('block', 'text-red-500');
-    result.innerText = 'Network Error. Could not connect.';
+    result.innerText = 'Network error. Could not connect.';
   } finally {
     button.disabled = false;
-    buttonText.innerText = 'Start My AI Project';
+    buttonText.innerText = 'Start my AI project';
     setTimeout(() => {
       hint.classList.remove('hidden');
       result.classList.add('hidden');

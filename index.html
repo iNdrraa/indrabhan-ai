@@ -13,9 +13,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -85,10 +82,43 @@
         }
     </script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body {
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(114, 220, 255, 0.028) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(114, 220, 255, 0.028) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+        }
+
         .glass-card {
             background: rgba(26, 25, 27, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(72, 72, 73, 0.2);
+            transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(114, 220, 255, 0.18);
+            box-shadow: 0 24px 48px rgba(0, 195, 237, 0.06);
         }
 
         .neon-glow {
@@ -105,40 +135,117 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        .service-card {
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .glass-card,
+            .service-card {
+                transition: none;
+            }
+
+            .service-card:hover {
+                transform: none;
+            }
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            position: fixed;
+            left: 1rem;
+            top: 1rem;
+            z-index: 100;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            background: #72dcff;
+            color: #004253;
+            font-family: Inter, system-ui, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-decoration: none;
+            outline: 2px solid rgba(0, 210, 255, 0.45);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 
 <body class="bg-background text-on-surface font-body selection:bg-primary-container/30">
-    <!-- Top Navigation Bar -->
+    <a href="#home" class="skip-link">Skip to content</a>
     <nav
-        class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-[#484849]/20 shadow-[0px_20px_40px_rgba(0,195,237,0.08)]">
-        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-            <div onclick="window.location.href='index.html'" style="cursor:pointer;"
-                class="text-xl font-bold text-[#72dcff] tracking-tight font-headline lowercase">
+        class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/25 shadow-[0px_12px_40px_rgba(0,0,0,0.35)]">
+        <div class="flex justify-between items-center px-6 sm:px-8 py-4 max-w-7xl mx-auto">
+            <a href="index.html"
+                class="text-xl font-bold text-primary tracking-tight font-headline normal-case focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-md">
                 Indrabhan Prajapati
-            </div>
+            </a>
             <div class="hidden md:flex gap-8 items-center">
-                <a class="font-headline lowercase tracking-tighter text-[#72dcff] border-b-2 border-[#72dcff] pb-1"
+                <a class="font-headline tracking-tighter text-primary border-b-2 border-primary pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
                     href="#home">Home</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
                     href="#services">Services</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
                     href="#about">About</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
                     href="#projects">Projects</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
                     href="#why-hire">Why Hire Me</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
+                <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
                     href="#contact">Contact</a>
-                <button onclick="window.location.href='hire-me.html'"
-                    class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-sm font-bold scale-95 active:scale-90 transition-transform">
+                <a href="hire-me.html"
+                    class="inline-flex items-center justify-center bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-sm font-bold hover:brightness-110 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/60">
                     Hire Me
-                </button>
+                </a>
             </div>
-            <!-- Mobile Menu Icon (Visual Only) -->
-            <div class="md:hidden">
-                <span class="material-symbols-outlined text-primary">menu</span>
-            </div>
+            <button type="button" id="nav-menu-btn"
+                class="md:hidden inline-flex items-center justify-center rounded-lg border border-outline-variant/40 p-2 text-primary hover:bg-surface-container-high transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                <span class="material-symbols-outlined text-2xl nav-icon-open">menu</span>
+                <span class="material-symbols-outlined text-2xl nav-icon-close hidden">close</span>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden fixed inset-0 z-40 top-[57px] sm:top-[61px]"
+            aria-hidden="true">
+            <div class="absolute inset-0 bg-black/55 backdrop-blur-sm" data-close-nav aria-hidden="true"></div>
+            <aside
+                class="absolute top-0 right-0 flex h-full w-[min(100%,20rem)] flex-col gap-1 border-l border-outline-variant/30 bg-surface-container/95 py-6 pl-6 pr-5 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+                role="dialog" aria-modal="true" aria-label="Site menu">
+                <a class="font-headline py-3 text-lg tracking-tighter text-primary border-b border-primary/40 focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="#home">Home</a>
+                <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="#services">Services</a>
+                <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="#about">About</a>
+                <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="#projects">Projects</a>
+                <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="gallery.html">All Projects</a>
+                <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="#why-hire">Why Hire Me</a>
+                <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+                    href="#contact">Contact</a>
+                <a href="hire-me.html"
+                    class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-container py-3 font-label text-sm font-bold text-on-primary-container focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/60">
+                    Hire Me
+                </a>
+            </aside>
         </div>
     </nav>
     <!-- Hero Section -->
@@ -158,23 +265,23 @@
                     <span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">96% user
                         satisfaction (chatbot project)</span>
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-headline font-bold lowercase tracking-tighter leading-tight">
-                    I Build <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI
-                        Systems</span> That Automate, Analyze, and Scale Your Business
+                <h1 class="text-5xl lg:text-7xl font-headline font-bold tracking-tighter leading-tight">
+                    I build <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI
+                        systems</span> that automate, analyze, and scale your business
                 </h1>
                 <p class="text-xl text-on-surface-variant max-w-xl font-body leading-relaxed">
                     Generative AI Engineer specializing in <span class="text-tertiary">LLMs</span>, <span
                         class="text-tertiary">AI Agents</span>, and <span class="text-tertiary">RAG Pipelines</span>.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <button onclick="window.location.href='hire-me.html'"
-                        class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-4 rounded-md font-label font-bold text-lg neon-glow hover:brightness-110 transition-all">
+                    <a href="hire-me.html"
+                        class="inline-flex items-center justify-center bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-4 rounded-md font-label font-bold text-lg neon-glow hover:brightness-110 active:scale-[0.99] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/50">
                         Hire Me
-                    </button>
-                    <button onclick="window.location.href='gallery.html'"
-                        class="border border-outline-variant px-8 py-4 rounded-md font-label font-bold text-lg hover:bg-surface-bright transition-all">
+                    </a>
+                    <a href="gallery.html"
+                        class="inline-flex items-center justify-center border border-outline-variant/50 px-8 py-4 rounded-md font-label font-bold text-lg text-on-surface hover:bg-surface-bright hover:border-primary/30 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40">
                         View Projects
-                    </button>
+                    </a>
                 </div>
             </div>
             <!-- Visual Component: AI Assistant UI Mockup -->
@@ -230,14 +337,14 @@
         <div class="max-w-7xl mx-auto px-8">
             <div class="mb-16">
                 <p class="text-primary font-label text-xs uppercase tracking-widest mb-2">Capabilities</p>
-                <h2 class="text-4xl font-headline font-bold lowercase tracking-tighter">AI Services Focused on ROI</h2>
+                <h2 class="text-4xl font-headline font-bold tracking-tighter">AI services focused on ROI</h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1 -->
-                <div class="glass-card p-8 rounded-xl hover:bg-surface-bright transition-all group">
+                <div class="glass-card service-card p-8 rounded-xl hover:bg-surface-bright group">
                     <span
-                        class="material-symbols-outlined text-primary text-4xl mb-6 block group-hover:scale-110 transition-transform">forum</span>
-                    <h3 class="text-xl font-headline font-bold mb-4">AI Chatbot Development</h3>
+                        class="material-symbols-outlined text-primary text-4xl mb-6 block group-hover:scale-110 transition-transform duration-300">forum</span>
+                    <h3 class="text-xl font-headline font-bold mb-4">AI chatbot development</h3>
                     <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Intelligent conversation engines
                         that understand context and drive actions, not just template responses.</p>
                     <div class="text-xs font-label text-primary flex items-center gap-2">
@@ -246,10 +353,10 @@
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="glass-card p-8 rounded-xl hover:bg-surface-bright transition-all group">
+                <div class="glass-card service-card p-8 rounded-xl hover:bg-surface-bright group">
                     <span
-                        class="material-symbols-outlined text-secondary text-4xl mb-6 block group-hover:scale-110 transition-transform">settings_input_component</span>
-                    <h3 class="text-xl font-headline font-bold mb-4">AI Automation Systems</h3>
+                        class="material-symbols-outlined text-secondary text-4xl mb-6 block group-hover:scale-110 transition-transform duration-300">settings_input_component</span>
+                    <h3 class="text-xl font-headline font-bold mb-4">AI automation systems</h3>
                     <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">End-to-end workflows that bridge the
                         gap between human intent and machine execution without intervention.</p>
                     <div class="text-xs font-label text-secondary flex items-center gap-2">
@@ -258,10 +365,10 @@
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="glass-card p-8 rounded-xl hover:bg-surface-bright transition-all group">
+                <div class="glass-card service-card p-8 rounded-xl hover:bg-surface-bright group">
                     <span
-                        class="material-symbols-outlined text-tertiary text-4xl mb-6 block group-hover:scale-110 transition-transform">insights</span>
-                    <h3 class="text-xl font-headline font-bold mb-4">Data Intelligence</h3>
+                        class="material-symbols-outlined text-tertiary text-4xl mb-6 block group-hover:scale-110 transition-transform duration-300">insights</span>
+                    <h3 class="text-xl font-headline font-bold mb-4">Data intelligence</h3>
                     <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Extracting deep insights from messy
                         unstructured data using custom RAG and analytics pipelines.</p>
                     <div class="text-xs font-label text-tertiary flex items-center gap-2">
@@ -270,10 +377,10 @@
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="glass-card p-8 rounded-xl hover:bg-surface-bright transition-all group">
+                <div class="glass-card service-card p-8 rounded-xl hover:bg-surface-bright group">
                     <span
-                        class="material-symbols-outlined text-error text-4xl mb-6 block group-hover:scale-110 transition-transform">visibility</span>
-                    <h3 class="text-xl font-headline font-bold mb-4">Computer Vision</h3>
+                        class="material-symbols-outlined text-error text-4xl mb-6 block group-hover:scale-110 transition-transform duration-300">visibility</span>
+                    <h3 class="text-xl font-headline font-bold mb-4">Computer vision</h3>
                     <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Real-time object detection and
                         tracking for logistics, inventory, and security monitoring.</p>
                     <div class="text-xs font-label text-error flex items-center gap-2">
@@ -291,37 +398,37 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                     <!-- Tech Item -->
                     <div
-                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10 transition-all duration-300 hover:border-primary/35 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,195,237,0.08)]">
                         <span class="material-symbols-outlined text-3xl text-primary">neurology</span>
                         <span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">LLMs
-                            &amp; Agents</span>
+                            &amp; agents</span>
                     </div>
                     <div
-                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10 transition-all duration-300 hover:border-primary/35 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,195,237,0.08)]">
                         <span class="material-symbols-outlined text-3xl text-secondary">link</span>
                         <span
                             class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">LangChain</span>
                     </div>
                     <div
-                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10 transition-all duration-300 hover:border-primary/35 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,195,237,0.08)]">
                         <span class="material-symbols-outlined text-3xl text-tertiary">cloud_done</span>
                         <span
                             class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">AWS/Docker</span>
                     </div>
                     <div
-                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10 transition-all duration-300 hover:border-primary/35 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,195,237,0.08)]">
                         <span class="material-symbols-outlined text-3xl text-primary-dim">database</span>
                         <span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Vector
                             DBs</span>
                     </div>
                     <div
-                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10 transition-all duration-300 hover:border-primary/35 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,195,237,0.08)]">
                         <span class="material-symbols-outlined text-3xl text-secondary-dim">hub</span>
                         <span
                             class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">HuggingFace</span>
                     </div>
                     <div
-                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+                        class="flex flex-col items-center gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant/10 transition-all duration-300 hover:border-primary/35 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,195,237,0.08)]">
                         <span class="material-symbols-outlined text-3xl text-on-surface">code</span>
                         <span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Python
                             Core</span>
@@ -329,8 +436,8 @@
                 </div>
             </div>
             <div class="order-1 lg:order-2 space-y-6">
-                <p class="text-primary font-label text-xs uppercase tracking-widest">About Me</p>
-                <h2 class="text-4xl font-headline font-bold lowercase tracking-tighter">What I Can Do For You</h2>
+                <p class="text-primary font-label text-xs uppercase tracking-widest">About me</p>
+                <h2 class="text-4xl font-headline font-bold tracking-tighter">What I can do for you</h2>
                 <p class="text-on-surface-variant leading-relaxed font-body">
                     I don't just build models; I build solutions. As an AI Engineer, my focus is bridging the "last
                     mile" of AI integration. Whether it's developing autonomous agents that manage your inbox or
@@ -344,7 +451,7 @@
                     <div class="flex items-center gap-8 border-l border-primary pl-8 py-2">
                         <div>
                             <p class="text-3xl font-headline font-bold text-primary">50+</p>
-                            <p class="text-xs uppercase tracking-widest font-label text-on-surface-variant">AI Pipelines
+                            <p class="text-xs uppercase tracking-widest font-label text-on-surface-variant">AI pipelines
                             </p>
                         </div>
                         <div>
@@ -363,12 +470,12 @@
             <div class="flex justify-between items-end mb-12">
                 <div>
                     <p class="text-primary font-label text-xs uppercase tracking-widest mb-2">Portfolio</p>
-                    <h2 class="text-4xl font-headline font-bold lowercase tracking-tighter">Case Studies</h2>
+                    <h2 class="text-4xl font-headline font-bold tracking-tighter">Case studies</h2>
                 </div>
                 <div class="hidden md:block">
                     <button onclick="window.location.href='gallery.html'"
                         class="text-primary font-label text-sm uppercase tracking-widest flex items-center gap-2 group">
-                        View All Projects
+                        View all projects
                         <span
                             class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
                     </button>
@@ -397,7 +504,7 @@
 
                     container.innerHTML = `
                     <!-- Project 1: Large -->
-                    <div class="md:col-span-8 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 relative">
+                    <div class="md:col-span-8 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 relative transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_24px_48px_rgba(0,0,0,0.35)]">
                         <img alt="${p1.title}" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="${p1.imageAlt?.featured || ''}" src="${p1.images?.featured || ''}" />
                         <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
                         <div class="absolute bottom-0 p-10">
@@ -411,7 +518,7 @@
                         </div>
                     </div>
                     <!-- Project 2: Square -->
-                    <div class="md:col-span-4 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 relative">
+                    <div class="md:col-span-4 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 relative transition-all duration-500 hover:-translate-y-1 hover:border-secondary/25 hover:shadow-[0_24px_48px_rgba(0,0,0,0.35)]">
                         <div class="absolute top-0 right-0 p-6 z-10">
                             <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center neon-glow">
                                 <span class="material-symbols-outlined text-on-primary-container">link</span>
@@ -427,7 +534,7 @@
                         </div>
                     </div>
                     <!-- Project 3: Square -->
-                    <div class="md:col-span-4 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 relative">
+                    <div class="md:col-span-4 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 relative transition-all duration-500 hover:-translate-y-1 hover:border-tertiary/25 hover:shadow-[0_24px_48px_rgba(0,0,0,0.35)]">
                         <div class="p-8 h-full flex flex-col">
                             <div class="inline-block px-3 py-1 bg-surface-bright text-on-surface-variant text-[10px] font-bold rounded-full uppercase tracking-widest mb-6 w-fit">${p3.category?.featured || ''}</div>
                             <h3 class="text-2xl font-headline font-bold mb-4">${p3.title}</h3>
@@ -438,7 +545,7 @@
                         </div>
                     </div>
                     <!-- Project 4: Wide -->
-                    <div class="md:col-span-8 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 flex flex-col md:flex-row">
+                    <div class="md:col-span-8 bg-surface-container-high rounded-xl overflow-hidden group border border-outline-variant/10 flex flex-col md:flex-row transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_24px_48px_rgba(0,0,0,0.35)]">
                         <div class="md:w-1/2 p-10 flex flex-col justify-center">
                             <div class="text-primary mb-4">
                                 <span class="material-symbols-outlined text-4xl">${p4.metrics?.icon || 'inventory_2'}</span>
@@ -469,7 +576,7 @@
         <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-8">
                 <p class="text-primary font-label text-xs uppercase tracking-widest">Differentiation</p>
-                <h2 class="text-4xl font-headline font-bold lowercase tracking-tighter">Why Choose My Neural Nexus?</h2>
+                <h2 class="text-4xl font-headline font-bold tracking-tighter">Why choose Neural Nexus?</h2>
                 <div class="space-y-6">
                     <div class="flex gap-6">
                         <div class="w-12 h-12 shrink-0 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -496,7 +603,7 @@
                             <span class="material-symbols-outlined text-tertiary">science</span>
                         </div>
                         <div>
-                            <h4 class="font-headline font-bold text-lg mb-1">Research + Implementation</h4>
+                            <h4 class="font-headline font-bold text-lg mb-1">Research and implementation</h4>
                             <p class="text-on-surface-variant text-sm">I stay ahead of the SOTA, implementing the latest
                                 RAG architectures and LLM optimizations.</p>
                         </div>
@@ -526,7 +633,7 @@
     <!-- Contact Section -->
     <section class="py-24 bg-surface-container-low border-t border-outline-variant/10" id="contact">
         <div class="max-w-4xl mx-auto px-8 text-center">
-            <h2 class="text-4xl font-headline font-bold lowercase tracking-tighter mb-4">Let's Build the Future</h2>
+            <h2 class="text-4xl font-headline font-bold tracking-tighter mb-4">Let's build the future</h2>
             <p class="text-on-surface-variant mb-12">Ready to automate your business with AI? Reach out for a
                 consultation.</p>
             <div
@@ -540,34 +647,34 @@
                 </div>
                 <div class="p-8 text-left font-mono">
                     <form id="contactForm" class="space-y-6">
-                        <div class="flex gap-4 items-center">
+                        <div class="flex flex-col sm:flex-row sm:gap-4 sm:items-center gap-2">
                             <span class="text-primary shrink-0">&gt; Name:</span>
-                            <input name="name" required
-                                class="bg-transparent border-none focus:ring-0 text-on-surface w-full p-0 font-mono"
+                            <input name="name" required autocomplete="name"
+                                class="w-full rounded-md border border-outline-variant/30 bg-surface-container-low/80 px-3 py-2.5 font-mono text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/35"
                                 placeholder="Enter your name..." type="text" />
                         </div>
-                        <div class="flex gap-4 items-center">
+                        <div class="flex flex-col sm:flex-row sm:gap-4 sm:items-center gap-2">
                             <span class="text-primary shrink-0">&gt; Email:</span>
-                            <input name="email" required
-                                class="bg-transparent border-none focus:ring-0 text-on-surface w-full p-0 font-mono"
+                            <input name="email" required autocomplete="email"
+                                class="w-full rounded-md border border-outline-variant/30 bg-surface-container-low/80 px-3 py-2.5 font-mono text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/35"
                                 placeholder="Enter your email..." type="email" />
                         </div>
-                        <div class="flex gap-4 items-start">
-                            <span class="text-primary shrink-0 mt-1">&gt; Message:</span>
+                        <div class="flex flex-col sm:flex-row sm:gap-4 sm:items-start gap-2">
+                            <span class="text-primary shrink-0 sm:mt-2.5">&gt; Message:</span>
                             <textarea name="message" required
-                                class="bg-transparent border-none focus:ring-0 text-on-surface w-full p-0 font-mono resize-none"
+                                class="w-full resize-none rounded-md border border-outline-variant/30 bg-surface-container-low/80 px-3 py-2.5 font-mono text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/35"
                                 placeholder="Describe your AI project..." rows="4"></textarea>
                         </div>
                         <div class="pt-6">
                             <button id="submitButton"
-                                class="bg-primary text-on-primary-container px-8 py-3 rounded-md font-label font-bold uppercase tracking-widest flex items-center gap-3 hover:brightness-110 transition-all group"
+                                class="bg-primary text-on-primary-container px-8 py-3 rounded-md font-label font-bold text-sm tracking-wide flex items-center gap-3 hover:brightness-110 active:scale-[0.99] transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/60"
                                 type="submit">
-                                <span id="submitButtonText">Execute Deployment</span>
+                                <span id="submitButtonText">Send message</span>
                                 <span
                                     class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
                             </button>
                         </div>
-                        <div id="formResult" class="hidden text-sm uppercase tracking-widest font-mono pt-4"></div>
+                        <div id="formResult" class="hidden text-sm tracking-wide font-mono pt-4"></div>
                     </form>
                 </div>
             </div>
@@ -588,31 +695,31 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-[#0e0e0f] border-t border-[#484849]/10">
-        <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto gap-4">
-            <div class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#adaaab]">
-                © 2024 Indrabhan Prajapati. Neural Nexus Built.
+    <footer class="bg-background border-t border-outline-variant/15">
+        <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto gap-6">
+            <div class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant text-center md:text-left">
+                © 2026 Indrabhan Prajapati. Neural Nexus Built.
             </div>
-            <div class="flex gap-8">
-                <a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#adaaab] hover:text-[#00d2ff] transition-colors"
+            <div class="flex flex-wrap justify-center gap-8">
+                <a class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus-visible:text-primary focus-visible:underline underline-offset-4"
                     href="#">GitHub</a>
-                <a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#adaaab] hover:text-[#00d2ff] transition-colors"
+                <a class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus-visible:text-primary focus-visible:underline underline-offset-4"
                     href="#">LinkedIn</a>
-                <a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#adaaab] hover:text-[#00d2ff] transition-colors"
+                <a class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus-visible:text-primary focus-visible:underline underline-offset-4"
                     href="#">Twitter</a>
             </div>
         </div>
     </footer>
-    <!-- Floating AI Widget (Visual Only) -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <button
-            class="w-16 h-16 bg-gradient-to-br from-primary to-primary-container rounded-full flex items-center justify-center shadow-[0px_0px_30px_rgba(0,195,237,0.4)] animate-bounce">
-            <span class="material-symbols-outlined text-on-primary-container text-3xl">chat_bubble</span>
-        </button>
-        <div
-            class="absolute -top-4 -right-2 bg-error text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-surface">
-            1</div>
+    <div class="fixed bottom-6 right-6 z-50 sm:bottom-8 sm:right-8">
+        <a href="#contact" data-scroll-contact
+            class="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-container shadow-[0px_0px_28px_rgba(0,195,237,0.35)] transition-transform duration-300 hover:scale-105 hover:shadow-[0px_0px_40px_rgba(0,195,237,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/70 motion-safe:animate-pulse motion-reduce:animate-none"
+            aria-label="Jump to contact form">
+            <span class="material-symbols-outlined text-on-primary-container text-2xl sm:text-3xl">chat_bubble</span>
+        </a>
+        <span
+            class="pointer-events-none absolute -right-0.5 -top-1 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full border border-surface bg-error px-1 font-label text-[10px] font-bold text-white">1</span>
     </div>
 
+    <script defer src="js/site-ui.js"></script>
     <script defer src="js/contact-forms.js"></script>
 </body>

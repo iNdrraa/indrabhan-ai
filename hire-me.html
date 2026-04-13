@@ -13,9 +13,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -85,6 +82,33 @@
     }
   </script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(114, 220, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(114, 220, 255, 0.028) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 80% 55% at 50% -10%, black 25%, transparent 65%);
+    }
+
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
@@ -92,6 +116,13 @@
     .glass-card {
       background: rgba(26, 25, 27, 0.6);
       backdrop-filter: blur(12px);
+      border: 1px solid rgba(72, 72, 73, 0.2);
+      transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(114, 220, 255, 0.15);
+      box-shadow: 0 24px 48px rgba(0, 195, 237, 0.06);
     }
 
     .neon-glow:focus {
@@ -104,42 +135,101 @@
       width: 100%;
       opacity: 0.1;
     }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 100;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      background: #72dcff;
+      color: #004253;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      outline: 2px solid rgba(0, 210, 255, 0.45);
+      outline-offset: 2px;
+    }
   </style>
 </head>
 
 <body class="bg-background text-on-surface font-body selection:bg-primary/30">
-  <!-- TopNavBar -->
-    <nav
-        class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-[#484849]/20 shadow-[0px_20px_40px_rgba(0,195,237,0.08)]">
-        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-            <div onclick="window.location.href='index.html'" style="cursor:pointer;" class="text-xl font-bold text-[#72dcff] tracking-tight font-headline lowercase">
-                Indrabhan Prajapati
-            </div>
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
-                    href="index.html#home">Home</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
-                    href="index.html#services">Services</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
-                    href="index.html#about">About</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
-                    href="gallery.html">Projects</a>
-                <a class="font-headline lowercase tracking-tighter text-[#72dcff] border-b-2 border-[#72dcff] pb-1"
-                    href="hire-me.html">Why Hire Me</a>
-                <a class="font-headline lowercase tracking-tighter text-[#adaaab] hover:text-[#72dcff] transition-colors"
-                    href="index.html#contact">Contact</a>
-                <button onclick="window.location.href='hire-me.html'"
-                    class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-sm font-bold scale-95 active:scale-90 transition-transform">
-                    Hire Me
-                </button>
-            </div>
-            <!-- Mobile Menu Icon (Visual Only) -->
-            <div class="md:hidden">
-                <span class="material-symbols-outlined text-primary">menu</span>
-            </div>
-        </div>
-    </nav>
-  <main class="pt-32 pb-20 px-6 max-w-screen-xl mx-auto relative overflow-hidden">
+  <a href="#hire-main" class="skip-link">Skip to content</a>
+  <nav
+    class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/25 shadow-[0px_12px_40px_rgba(0,0,0,0.35)]">
+    <div class="flex justify-between items-center px-6 sm:px-8 py-4 max-w-7xl mx-auto">
+      <a href="index.html"
+        class="text-xl font-bold text-primary tracking-tight font-headline normal-case focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-md">
+        Indrabhan Prajapati
+      </a>
+      <div class="hidden md:flex gap-8 items-center">
+        <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="index.html#home">Home</a>
+        <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="index.html#services">Services</a>
+        <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="index.html#about">About</a>
+        <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="gallery.html">Projects</a>
+        <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="index.html#why-hire">Why Hire Me</a>
+        <a class="font-headline tracking-tighter text-primary border-b-2 border-primary pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="hire-me.html">Hire Me</a>
+        <a class="font-headline tracking-tighter text-on-surface-variant hover:text-primary transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm"
+          href="index.html#contact">Contact</a>
+        <a href="hire-me.html"
+          class="inline-flex items-center justify-center bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-sm font-bold hover:brightness-110 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/60">
+          Hire Me
+        </a>
+      </div>
+      <button type="button" id="nav-menu-btn"
+        class="md:hidden inline-flex items-center justify-center rounded-lg border border-outline-variant/40 p-2 text-primary hover:bg-surface-container-high transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+        aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="material-symbols-outlined text-2xl nav-icon-open">menu</span>
+        <span class="material-symbols-outlined text-2xl nav-icon-close hidden">close</span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-40 top-[57px] sm:top-[61px]" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/55 backdrop-blur-sm" data-close-nav aria-hidden="true"></div>
+      <aside
+        class="absolute top-0 right-0 flex h-full w-[min(100%,20rem)] flex-col gap-1 border-l border-outline-variant/30 bg-surface-container/95 py-6 pl-6 pr-5 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+        role="dialog" aria-modal="true" aria-label="Site menu">
+        <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="index.html#home">Home</a>
+        <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="index.html#services">Services</a>
+        <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="index.html#about">About</a>
+        <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="gallery.html">Projects</a>
+        <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="index.html#why-hire">Why Hire Me</a>
+        <a class="font-headline py-3 text-lg tracking-tighter text-primary border-b border-primary/40 focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="hire-me.html">Hire Me</a>
+        <a class="font-headline py-3 text-lg tracking-tighter text-on-surface hover:text-primary transition-colors focus:outline-none focus-visible:bg-surface-container-high rounded-l-md pr-2"
+          href="index.html#contact">Contact</a>
+        <a href="hire-me.html"
+          class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-container py-3 font-label text-sm font-bold text-on-primary-container focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container/60">
+          Start a project
+        </a>
+      </aside>
+    </div>
+  </nav>
+  <main id="hire-main" class="pt-32 pb-20 px-6 max-w-screen-xl mx-auto relative overflow-hidden" tabindex="-1">
     <!-- Background Accents -->
     <div class="absolute top-0 right-0 -z-10 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
     <div class="absolute bottom-1/4 left-0 -z-10 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full"></div>
@@ -152,8 +242,8 @@
             <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
             Available for Projects
           </div>
-          <h1 class="text-5xl md:text-6xl font-headline lowercase tracking-tighter leading-tight">
-            let's build your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">ai
+          <h1 class="text-5xl md:text-6xl font-headline tracking-tighter leading-tight">
+            Let's build your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI
               solution</span>
           </h1>
           <p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-md">
@@ -168,7 +258,7 @@
               <span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
             </div>
             <div>
-              <h4 class="font-headline text-lg text-on-surface">real-world deployment</h4>
+              <h4 class="font-headline text-lg text-on-surface">Real-world deployment</h4>
               <p class="text-sm text-on-surface-variant">Experienced in production-grade AI systems that handle millions
                 of requests.</p>
             </div>
@@ -179,7 +269,7 @@
               <span class="material-symbols-outlined text-primary" data-weight="fill">account_tree</span>
             </div>
             <div>
-              <h4 class="font-headline text-lg text-on-surface">scalable llm systems</h4>
+              <h4 class="font-headline text-lg text-on-surface">Scalable LLM systems</h4>
               <p class="text-sm text-on-surface-variant">Built custom RAG pipelines and fine-tuned models for
                 domain-specific automation.</p>
             </div>
@@ -190,7 +280,7 @@
               <span class="material-symbols-outlined text-primary" data-weight="fill">monitoring</span>
             </div>
             <div>
-              <h4 class="font-headline text-lg text-on-surface">measurable results</h4>
+              <h4 class="font-headline text-lg text-on-surface">Measurable results</h4>
               <p class="text-sm text-on-surface-variant">Focused on ROI and efficiency metrics, not just vanity
                 technology benchmarks.</p>
             </div>
@@ -218,7 +308,7 @@
           class="glass-card rounded-2xl p-8 border border-outline-variant/10 shadow-[0px_20px_40px_rgba(0,195,237,0.05)] relative">
           <!-- Form Header & Toggle -->
           <div class="flex justify-between items-center mb-8">
-            <h3 class="font-headline text-xl text-on-surface">Project Inquiry</h3>
+            <h3 class="font-headline text-xl text-on-surface">Project inquiry</h3>
             <div class="flex items-center gap-2 bg-surface-container-highest p-1 rounded-lg">
               <button
                 class="px-3 py-1 rounded text-[0.6875rem] font-label uppercase tracking-widest bg-surface-bright text-primary shadow-sm">Visual</button>
@@ -229,15 +319,13 @@
           <form id="hireMeForm" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Full
-                  Name</label>
+                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Full name</label>
                 <input name="name" required
                   class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body"
                   placeholder="John Doe" type="text" />
               </div>
               <div class="space-y-2">
-                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Email
-                  Address</label>
+                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Email address</label>
                 <input name="email" required
                   class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body"
                   placeholder="john@company.com" type="email" />
@@ -246,16 +334,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label
-                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Company
-                  (Optional)</label>
+                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Company (optional)</label>
                 <input name="company"
                   class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body"
                   placeholder="Acme Corp" type="text" />
               </div>
               <div class="space-y-2">
                 <label
-                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Project
-                  Type</label>
+                  class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Project type</label>
                 <select name="project_type"
                   class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface focus:outline-none focus:border-primary neon-glow transition-all font-body appearance-none">
                   <option>AI Chatbot</option>
@@ -267,16 +353,14 @@
               </div>
             </div>
             <div class="space-y-2">
-              <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Project
-                Description</label>
+              <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Project description</label>
               <textarea name="message" required
                 class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary neon-glow transition-all font-body resize-none"
                 placeholder="Tell me about the problem you're trying to solve..." rows="4"></textarea>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Budget
-                  Range</label>
+                <label class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant ml-1">Budget range</label>
                 <select name="budget"
                   class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md px-4 py-3 text-on-surface focus:outline-none focus:border-primary neon-glow transition-all font-body appearance-none">
                   <option>₹10k–₹50k</option>
@@ -298,9 +382,9 @@
             <button id="hireSubmitButton"
               class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-4 rounded-md font-headline text-lg font-bold hover:shadow-[0_0_20px_rgba(114,220,255,0.4)] transition-all duration-300 transform hover:-translate-y-1"
               type="submit">
-              <span id="hireSubmitButtonText">Start My AI Project</span>
+              <span id="hireSubmitButtonText">Start my AI project</span>
             </button>
-            <div id="hireFormResult" class="hidden text-center text-sm uppercase tracking-widest font-mono"></div>
+            <div id="hireFormResult" class="hidden text-center text-sm tracking-wide font-mono"></div>
             <!-- Subtle Success State Hint -->
             <div id="hireFormHint"
               class="flex items-center justify-center gap-2 py-2 text-primary font-label text-[0.6875rem] uppercase tracking-widest opacity-80">
@@ -320,7 +404,7 @@
             <span class="material-symbols-outlined">schedule</span>
           </div>
           <div>
-            <p class="font-body text-sm font-medium">System Status: Awaiting Connection</p>
+            <p class="font-body text-sm font-medium">System status: awaiting connection</p>
             <p class="text-xs text-on-surface-variant">Ready to initialize project protocol.</p>
           </div>
         </div>
@@ -338,7 +422,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
           <div>
             <p class="text-[0.6rem] font-label text-primary uppercase tracking-widest mb-1">Infrastructure</p>
-            <h5 class="font-headline text-lg">Scalable Cloud AI</h5>
+            <h5 class="font-headline text-lg">Scalable cloud AI</h5>
           </div>
         </div>
       </div>
@@ -350,7 +434,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
           <div>
             <p class="text-[0.6rem] font-label text-secondary uppercase tracking-widest mb-1">Automation</p>
-            <h5 class="font-headline text-lg">Intelligent Workflows</h5>
+            <h5 class="font-headline text-lg">Intelligent workflows</h5>
           </div>
         </div>
       </div>
@@ -362,26 +446,27 @@
         <div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
           <div>
             <p class="text-[0.6rem] font-label text-tertiary uppercase tracking-widest mb-1">Intelligence</p>
-            <h5 class="font-headline text-lg">Predictive Analytics</h5>
+            <h5 class="font-headline text-lg">Predictive analytics</h5>
           </div>
         </div>
       </div>
     </div>
   </section>
   <!-- Footer -->
-  <footer class="w-full py-12 px-8 border-t border-white/5 bg-zinc-950">
+  <footer class="w-full border-t border-outline-variant/15 bg-background py-12 px-8">
     <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
-      <div class="font-headline text-lg text-zinc-200 lowercase">neural nexus</div>
-      <div class="flex gap-8">
-        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Privacy Policy</a>
-        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Terms of Service</a>
-        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Documentation</a>
-        <a class="text-zinc-500 hover:text-cyan-300 transition-colors font-body text-sm" href="#">Github</a>
+      <div class="font-headline text-lg text-on-surface">Neural Nexus</div>
+      <div class="flex flex-wrap justify-center gap-8">
+        <a class="font-body text-sm text-on-surface-variant transition-colors hover:text-primary focus:outline-none focus-visible:underline underline-offset-4" href="#">Privacy Policy</a>
+        <a class="font-body text-sm text-on-surface-variant transition-colors hover:text-primary focus:outline-none focus-visible:underline underline-offset-4" href="#">Terms of Service</a>
+        <a class="font-body text-sm text-on-surface-variant transition-colors hover:text-primary focus:outline-none focus-visible:underline underline-offset-4" href="#">Documentation</a>
+        <a class="font-body text-sm text-on-surface-variant transition-colors hover:text-primary focus:outline-none focus-visible:underline underline-offset-4" href="#">GitHub</a>
       </div>
-      <p class="font-body text-sm text-zinc-500">© 2024 Neural Nexus AI. Engineered for Excellence.</p>
+      <p class="font-body text-sm text-on-surface-variant">© 2026 Neural Nexus AI. Engineered for Excellence.</p>
     </div>
   </footer>
 
+  <script defer src="js/site-ui.js"></script>
   <script defer src="js/contact-forms.js"></script>
 </body>
 </html>
