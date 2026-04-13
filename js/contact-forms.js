@@ -1,13 +1,15 @@
 /**
- * Static-site friendly forms (works with GitHub Pages "Deploy from a branch").
- * 1. Sign up at https://formspree.io and create a form.
- * 2. Copy the form URL (looks like https://formspree.io/f/xxxxxxxx).
- * 3. Paste it into FORMSPREE_ENDPOINT below and push.
+ * Formspree URL is filled in by GitHub Actions from the FORMSPREE_ENDPOINT secret
+ * (see .github/workflows/deploy.yml). Do not put your real URL in git.
+ *
+ * The deployed script still contains the URL in the browser — that is required for
+ * client-side submit. Only the GitHub repo stays free of it.
  */
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkokwdwz';
+const FORMSPREE_ENDPOINT = '{{FORMSPREE_ENDPOINT}}';
 
 function formspreeConfigured() {
-  return Boolean(FORMSPREE_ENDPOINT && !FORMSPREE_ENDPOINT.includes('REPLACE_WITH_YOUR_ID'));
+  const v = FORMSPREE_ENDPOINT;
+  return Boolean(v && !v.includes('{{FORMSPREE_ENDPOINT}}') && v.startsWith('https://'));
 }
 
 async function submitToFormspree(form) {

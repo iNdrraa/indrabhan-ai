@@ -27,6 +27,31 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Inject Formspree endpoint from secret
+        env:
+          FORMSPREE_ENDPOINT: ${{ secrets.FORMSPREE_ENDPOINT }}
+        run: |
+          if [ -z "$FORMSPREE_ENDPOINT" ]; then
+            echo "::error::Add secret FORMSPREE_ENDPOINT (full URL, e.g. https://formspree.io/f/xxxx) under Settings → Secrets → Actions."
+            exit 1
+          fi
+          python3 << 'PY'
+          import os
+          url = os.environ["FORMSPREE_ENDPOINT"].strip()
+          token = "{{FORMSPREE_ENDPOINT}}"
+          path = "js/contact-forms.js"
+          with open(path, encoding="utf-8") as f:
+              text = f.read()
+          if token not in text:
+              raise SystemExit("Placeholder {{FORMSPREE_ENDPOINT}} missing in js/contact-forms.js")
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(text.replace(token, url))
+          PY
+          if grep -q '{{FORMSPREE_ENDPOINT}}' js/contact-forms.js; then
+            echo "::error::Formspree URL was not injected."
+            exit 1
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
