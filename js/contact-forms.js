@@ -1,15 +1,26 @@
 /**
- * Formspree URL is filled in by GitHub Actions from the FORMSPREE_ENDPOINT secret
- * (see .github/workflows/deploy.yml). Do not put your real URL in git.
+ * Formspree endpoint (full URL, e.g. https://formspree.io/f/xxxxxxxx):
  *
- * The deployed script still contains the URL in the browser — that is required for
- * client-side submit. Only the GitHub repo stays free of it.
+ * • GitHub Pages: add repo secret FORMSPREE_ENDPOINT. The deploy workflow replaces
+ *   the inject marker in this file (see .github/workflows/deploy.yml).
+ *
+ * • Local preview: before this script loads, set:
+ *   window.__FORMSPREE_ENDPOINT__ = 'https://formspree.io/f/yourid';
+ *   (optional one-liner in index.html / hire-me.html; do not commit real URLs.)
  */
-const FORMSPREE_ENDPOINT = '{{FORMSPREE_ENDPOINT}}';
+function resolveFormspreeEndpoint() {
+  if (typeof window !== 'undefined' && window.__FORMSPREE_ENDPOINT__) {
+    const w = String(window.__FORMSPREE_ENDPOINT__).trim();
+    if (w.startsWith('https://')) return w;
+  }
+  return '__INJECT_FORMSPREE_URL__';
+}
+
+const FORMSPREE_ENDPOINT = resolveFormspreeEndpoint();
 
 function formspreeConfigured() {
   const v = FORMSPREE_ENDPOINT;
-  return Boolean(v && !v.includes('{{FORMSPREE_ENDPOINT}}') && v.startsWith('https://'));
+  return typeof v === 'string' && v.startsWith('https://');
 }
 
 async function submitToFormspree(form) {
@@ -48,7 +59,7 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
     result.classList.remove('hidden', 'text-primary');
     result.classList.add('text-error');
     result.innerText =
-      '> Set FORMSPREE_ENDPOINT in js/contact-forms.js (free signup at https://formspree.io).';
+      '> Forms: create a form at https://formspree.io, then add GitHub secret FORMSPREE_ENDPOINT (full form URL), or for local testing set window.__FORMSPREE_ENDPOINT__ before this script.';
     return;
   }
 
@@ -90,7 +101,7 @@ document.getElementById('hireMeForm')?.addEventListener('submit', async function
     result.classList.remove('hidden', 'text-primary');
     result.classList.add('block', 'text-red-500');
     result.innerText =
-      'Set FORMSPREE_ENDPOINT in js/contact-forms.js (https://formspree.io).';
+      'Forms: add GitHub secret FORMSPREE_ENDPOINT, or set window.__FORMSPREE_ENDPOINT__ for local preview. Sign up at https://formspree.io';
     hint.classList.add('hidden');
     return;
   }

@@ -2,7 +2,7 @@
   {
     "id": "merchant-analytics",
     "title": "Merchant Analytics Chatbot",
-    "description": "Converted complex SQL queries into natural language dialogues using autonomous agents for real-time merchant insights.",
+    "description": "Converted complex SQL queries into natural language dialogues using autonomous agents, with MCP-style tool routing to the database layer for safer, auditable merchant insights.",
     "featuredDescription": "Empowered merchants to query multi-million row databases using natural language, reducing data analysis time by 90%.",
     "featured": true,
     "images": {
@@ -14,13 +14,20 @@
       "gallery": "Futuristic data visualization dashboard with glowing blue nodes and connected neural pathways on a dark background"
     },
     "tags": {
-      "gallery": ["LangChain", "PostgreSQL", "OpenAI"],
-      "featured": ["Text-to-SQL", "LLM Agent"]
+      "gallery": ["LangChain", "PostgreSQL", "OpenAI", "MCP"],
+      "featured": ["Text-to-SQL", "LLM Agent", "MCP"]
     },
     "category": {
       "gallery": "Text-to-SQL + Agents",
       "featured": "Enterprise"
     },
+    "whatIDid": [
+      "Mapped merchant questions to safe, parameterized SQL paths with validation before any database execution.",
+      "Implemented autonomous agents (LangChain-style) with tool routing to PostgreSQL and clear error handling for bad queries.",
+      "Designed the NL interface so non-technical users could explore multi-million-row datasets without analyst bottlenecks.",
+      "Collaborated on schema understanding, metric definitions, and prompt templates to improve answer quality over time.",
+      "Hardened the flow for production: logging, timeouts, and iterative tuning from real merchant usage."
+    ],
     "metrics": {
       "text": "120k queries handled monthly",
       "icon": "trending_up"
@@ -48,7 +55,14 @@
     "category": {
       "gallery": "Computer Vision",
       "featured": "Real-time Recognition"
-    }
+    },
+    "whatIDid": [
+      "Trained and refined a custom YOLOv8 detector for plates under motion blur, low light, and motorway-scale scenes.",
+      "Built an OpenCV-based capture and preprocessing pipeline to stabilize inputs before inference.",
+      "Packaged the model for deployment targets that mirror edge constraints (latency, memory, and batch size).",
+      "Measured accuracy on validation and field-like footage; tuned augmentations and NMS for operational precision.",
+      "Aligned outputs with logging and alerting so security or traffic teams could act on detections reliably."
+    ]
   },
   {
     "id": "customer-insight-system",
@@ -73,6 +87,13 @@
       "gallery": "96% Satisfaction",
       "featured": "Customer Support"
     },
+    "whatIDid": [
+      "Designed a RAG architecture with LangChain and Pinecone for accurate, citation-friendly support answers.",
+      "Ingested and chunked documentation; tuned embeddings and retrieval so answers stayed on-topic and up to date.",
+      "Exposed the assistant through APIs suitable for product integration and measured satisfaction in production.",
+      "Iterated on prompts, filters, and fallback behavior to reduce hallucinations and unsupported claims.",
+      "Tracked failure cases (missing docs, ambiguous questions) to expand the knowledge base and improve coverage."
+    ],
     "metrics": {
       "stars": 4.5
     }
@@ -96,6 +117,13 @@
       "gallery": ["Python", "OCR", "Pandas"],
       "featured": []
     },
+    "whatIDid": [
+      "Connected ERP and stock data to forecasting and reorder logic so restocking could run with minimal manual entry.",
+      "Built OCR and parsing steps to turn scans and supplier documents into structured rows Pandas could reconcile.",
+      "Implemented validation rules and exception queues so bad reads did not silently corrupt inventory state.",
+      "Partnered with ops to define thresholds, safety stock, and human-in-the-loop approvals where risk was high.",
+      "Tracked effort and error rates before/after rollout to validate the 98% reduction claim in real workflows."
+    ],
     "galleryLayout": "large",
     "metricsList": [
       "98% Effort Reduction",
@@ -123,7 +151,14 @@
     },
     "category": {
       "gallery": "LLM + Multi-agent"
-    }
+    },
+    "whatIDid": [
+      "Designed a multi-agent workflow to search, summarize, and cross-check sources before drafting structured reports.",
+      "Orchestrated tool use (search, scraping where allowed, and citation handling) with clear stop conditions and budgets.",
+      "Normalized outputs into templates stakeholders could skim: key claims, sources, and open questions.",
+      "Reduced redundant work by parallelizing subtasks while keeping a single coherent narrative thread.",
+      "Tested edge cases (thin sources, conflicting pages) and added guardrails for unsupported statements."
+    ]
   },
   {
     "id": "predictive-maintenance",
@@ -143,6 +178,65 @@
     },
     "category": {
       "gallery": "ML + IoT Analytics"
-    }
+    },
+    "whatIDid": [
+      "Ingested time-series sensor data and engineered features that reflect wear, vibration, and operating context.",
+      "Trained PyTorch models for failure risk scoring and calibrated thresholds with maintenance teams.",
+      "Built monitoring views so engineers could see drift, anomalies, and upcoming maintenance windows.",
+      "Aligned predictions with spare-parts planning and downtime windows to make the dashboard actionable.",
+      "Validated models on historical failures and iterated on class imbalance and labeling noise."
+    ]
+  },
+  {
+    "id": "cosmetic-data-mining",
+    "title": "Cosmetic data mining & retrieval",
+    "description": "OCR plus fine-tuned LLMs to extract product details and run a deep learning NLP pipeline for faster, more accurate information retrieval.",
+    "featured": false,
+    "images": {
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuD6B0lU5HrLmvPC1I-vcWpFNBVNfklFYt9k9z3QOHEhokWLIw77eZQX76WIQfMQoeLAG1SHm4-WcGY0ClUGKJPRZ2B9AnSw28Bi5zje2KaRcHmr_aCo_JMnXPBhhmBMW_jsvT2RzAvP83fIF2d-6foG3CKLneJojlqz3a1Pl_i_4mmVOebAxfg3zpH7m0H3s0BUuawtRDvlGpEqVRk5nadlp6jDVFK8tkVm7X52DrcrcGjlVuxi-BJaenluiY13pp073xlrI7KOjrc"
+    },
+    "imageAlt": {
+      "gallery": "Abstract digital pattern suggesting data extraction and text processing pipelines"
+    },
+    "tags": {
+      "gallery": ["OCR", "LLM", "NLP"]
+    },
+    "category": {
+      "gallery": "GenAI + retrieval"
+    },
+    "whatIDid": [
+      "Combined OCR pipelines with fine-tuned LLMs to pull structured fields from noisy product imagery and labels.",
+      "Built an NLP retrieval layer so teams could query cosmetic catalogs with semantic search, not just keywords.",
+      "Normalized entities (brand, shade, ingredients) to support downstream analytics and compliance checks.",
+      "Measured retrieval quality and extraction accuracy; fixed systematic errors with data and prompt updates.",
+      "Packaged the flow for repeatable batch runs and incremental updates as new SKUs arrived."
+    ]
+  },
+  {
+    "id": "workflow-mcp-automation",
+    "title": "Workflow & MCP automation",
+    "galleryTitle": "MCP + n8n / Make orchestration",
+    "description": "LLM agents call business systems through MCP servers; n8n, Zapier, and Make handle schedules, webhooks, retries, and handoffs to humans.",
+    "galleryDescription": "Bridges model tool use (MCP) with no-code automation so product and ops teams can evolve flows without retraining the whole stack. LangSmith-style tracing fits here for evals and incident review.",
+    "featured": false,
+    "images": {
+      "gallery": "https://lh3.googleusercontent.com/aida-public/AB6AXuAkOhDD5XifzyBfFH2ZRUWbIcNG2WjSYrZBZxkp0ybq34pW5VV-9uPtDFFNDZ7rZzsARQGgGiX1DAncGLnpDI7ql1gKz6fU3V83zEHs3RID8RUYUrWovvhbb1bgdCRBCWe0lbUnMZokTeGG-wpBgzqMGbc2CBe1G6bjW9dI2eEtqV7Jr9Vg_pxnFOcW1SU_5bLA6DkCBiKR8a2SyNau9--BG85QgwnVvWxfjGscsrC42kkwtv_fg6pvZVECxu2hUTefToCsBqEVuIE"
+    },
+    "imageAlt": {
+      "gallery": "Abstract connected nodes suggesting APIs, webhooks, and agent tool calls across a network"
+    },
+    "tags": {
+      "gallery": ["MCP", "n8n", "Make", "Zapier"]
+    },
+    "category": {
+      "gallery": "Integrations + agents"
+    },
+    "whatIDid": [
+      "Exposed internal APIs and data sources to LLMs through MCP servers with auth, schemas, and rate limits.",
+      "Used n8n, Zapier, and Make for schedules, webhooks, retries, and human approval steps between systems.",
+      "Defined clear contracts between model decisions and automation steps so failures were visible and recoverable.",
+      "Recommended LangSmith-style tracing and eval hooks so teams could debug tool calls in production.",
+      "Documented how to add a new tool or swap a workflow block without rewriting the whole agent stack."
+    ]
   }
 ]
